@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
+  max-height: 95%;
   position: relative;
 }
 
@@ -9,7 +10,7 @@
   background-color: white;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: stretch;
 
   &_left,
   &_right {
@@ -17,7 +18,17 @@
     padding: 40px;
   }
 
+  &_right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
   &_left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
     &_header {
       font-size: 38px;
       line-height: 1.23;
@@ -96,7 +107,7 @@
     font-size: 50px;
     color: #fff;
     font-weight: 500;
-    max-height: 100vh;
+    max-height: 100%;
     padding: 0;
 
     height: 100%;
