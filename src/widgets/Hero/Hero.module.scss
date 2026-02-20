@@ -4,8 +4,6 @@ $imageBackground: url("@assets/images/image_background.png");
   display: flex;
   flex-direction: column;
   height: 100vh;
-  scroll-snap-align: start;
-  scroll-snap-stop: normal;
   position: relative;
 }
 
