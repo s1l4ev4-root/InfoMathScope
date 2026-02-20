@@ -3,5 +3,19 @@
   overflow-y: auto;
 
   overflow-y: scroll;
-  scroll-behavior: smooth;
+}
+
+.preloaderContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  transition: opacity 0.8s ease-in-out;
+  opacity: 1;
+}
+
+.hiding {
+  opacity: 0;
+  pointer-events: none;
 }
