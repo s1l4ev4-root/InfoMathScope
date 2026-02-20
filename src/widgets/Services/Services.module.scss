@@ -69,3 +69,59 @@
     );
   }
 }
+
+@media (max-width: 1024px) {
+  .thirdBlock {
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+
+    &_header {
+      font-size: 36px;
+      text-align: center;
+    }
+
+    &_ul {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+
+      &_li {
+        width: 45%;
+        font-size: 16px;
+        &_title {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .scrollSection {
+    height: auto;
+    padding: 40px 0;
+  }
+
+  .thirdBlock {
+    padding: 20px;
+    &_header {
+      font-size: 28px;
+    }
+    &_ul {
+      flex-direction: column;
+      gap: 40px;
+
+      &_li {
+        width: 100%;
+        font-size: 14px;
+        &_title {
+          font-size: 20px;
+        }
+        &_icon img {
+          width: 60px;
+        }
+      }
+    }
+  }
+}

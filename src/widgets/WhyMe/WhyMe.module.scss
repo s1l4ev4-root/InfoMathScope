@@ -131,3 +131,49 @@
     );
   }
 }
+
+@media (max-width: 1024px) {
+  .secondBlock {
+    &_left,
+    &_right {
+      padding: 30px;
+    }
+    &_left {
+      &_header {
+        font-size: 32px;
+      }
+      &_list {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .scrollSection {
+    height: auto;
+    padding: 40px 0;
+  }
+
+  .secondBlock {
+    flex-direction: column;
+    gap: 30px;
+
+    &_left,
+    &_right {
+      width: 100%;
+      padding: 0 20px;
+    }
+
+    &_left {
+      &_header {
+        font-size: 28px;
+        text-align: center;
+        background-image: none;
+      }
+      &_list {
+        padding-top: 15px;
+      }
+    }
+  }
+}

@@ -107,3 +107,73 @@ $imageBackground: url("@assets/images/image_background.png");
     );
   }
 }
+
+@media (max-width: 1024px) {
+  .firstBlock {
+    &_up {
+      .header {
+        &_center {
+          font-size: 50px;
+        }
+      }
+    }
+    &_down {
+      &_text {
+        &_first {
+          font-size: 30px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .firstBlock {
+    &_up {
+      height: 40%;
+      .header {
+        height: auto;
+        flex-direction: column;
+        justify-content: center;
+        gap: 15px;
+        padding-top: 20px;
+
+        &_left,
+        &_right,
+        &_center {
+          width: 100%;
+          text-align: center;
+        }
+
+        &_center {
+          font-size: 40px;
+          order: -1;
+        }
+      }
+    }
+
+    &_down {
+      height: 60%;
+      &_picture {
+        width: 120px;
+        height: 120px;
+      }
+      &_text {
+        padding: 0 15px;
+        justify-content: center;
+        gap: 20px;
+        &_first {
+          margin-top: 60px;
+          font-size: 24px;
+        }
+        &_second {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  .lineContainer {
+    bottom: 10px;
+  }
+}
