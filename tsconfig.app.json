@@ -3,40 +3,40 @@
     "baseUrl": ".",
     "paths": {
       "@public/*": [
-        "public/*"
+        "./public/*"
       ],
       "@fonts/*": [
-        "public/fonts/*"
+        "./public/fonts/*"
       ],
       "@icons/*": [
-        "public/icons/*"
+        "./public/icons/*"
       ],
       "@images/*": [
-        "public/images/*"
+        "./public/images/*"
       ],
       "@/*": [
-        "src/*"
+        "./src/*"
       ],
       "@app/*": [
-        "src/app/*"
+        "./src/app/*"
       ],
       "@assets/*": [
-        "src/assets/*"
+        "./src/assets/*"
       ],
       "@features/*": [
-        "src/features/*"
+        "./src/features/*"
       ],
       "@pages/*": [
-        "src/pages/*"
+        "./src/pages/*"
       ],
       "@routes/*": [
-        "src/routes/*"
+        "./src/routes/*"
       ],
       "@shared/*": [
-        "src/shared/*"
+        "./src/shared/*"
       ],
       "@widgets/*": [
-        "src/widgets/*"
+        "./src/widgets/*"
       ]
     },
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
