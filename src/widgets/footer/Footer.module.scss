@@ -1,0 +1,114 @@
+.scrollSection {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+  position: relative;
+}
+
+.foursBlock {
+  &_up {
+    height: 70%;
+    background-color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 40px;
+
+    &_title {
+      text-align: center;
+      font-size: 30px;
+      line-height: 1.35;
+      font-weight: 300;
+
+      background-image: linear-gradient(
+        to right,
+        transparent 0 0,
+        #000 0 100%,
+        transparent 100% 100%
+      );
+      background-size: 100% 2px;
+      background-repeat: no-repeat;
+      background-position: bottom;
+      padding-bottom: 8px;
+    }
+
+    &_button {
+      &_link {
+        display: inline-flex;
+        justify-content: center;
+        max-width: 100%;
+        font-weight: 600;
+        line-height: var(--line-height, 1.4);
+        padding-top: calc(
+          ((var(--height, 0px) - 1em * var(--line-height, 1.4)) / 2) - var(
+              --border-width,
+              0px
+            )
+        );
+        padding-bottom: calc(
+          ((var(--height, 0px) - 1em * var(--line-height, 1.4)) / 2) - var(
+              --border-width,
+              0px
+            )
+        );
+        border-radius: 16px;
+        --height: 45px;
+        font-size: 14px;
+        padding-left: 30px;
+        padding-right: 30px;
+        color: #ffffff !important;
+        background-color: #ab9fc2;
+      }
+    }
+  }
+
+  &_down {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+
+    height: 30%;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.7) 70%
+    );
+
+    background-color: #ab9fc2;
+    position: relative;
+
+    color: white;
+
+    &_up,
+    &_middle,
+    &_bottom {
+      display: flex;
+      height: 100%;
+    }
+
+    &_up {
+      gap: 20px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    &_middle {
+      flex-direction: column;
+      justify-content: center;
+      font-size: 14px;
+      opacity: 0.7;
+      text-align: center;
+    }
+
+    &_bottom {
+      align-items: flex-end;
+      gap: 20px;
+    }
+  }
+}

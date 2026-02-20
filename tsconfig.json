@@ -1,39 +1,6 @@
 {
   "files": [],
-  "compilerOptions": {
-    "paths": {
-      "@public/*": [
-        "./public/*"
-      ],
-      "@fonts/*": [
-        "./public/fonts/*"
-      ],
-      "@icons/*": [
-        "./public/icons/*"
-      ],
-      "@images/*": [
-        "./public/images/*"
-      ],
-      "@/*": [
-        "./src/*"
-      ],
-      "@assets/*": [
-        "./src/assets/*"
-      ],
-      "@features/*": [
-        "./src/features/*"
-      ],
-      "@pages/*": [
-        "./src/pages/*"
-      ],
-      "@routes/*": [
-        "./src/routes/*"
-      ],
-      "@shared/*": [
-        "./src/shared/*"
-      ],
-    },
-  },
+  "compilerOptions": {},
   "references": [
     {
       "path": "./tsconfig.app.json"
