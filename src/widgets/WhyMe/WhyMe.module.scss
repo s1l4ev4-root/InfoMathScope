@@ -156,6 +156,10 @@
       }
     }
   }
+
+  .scrollSection {
+    max-height: none;
+  }
 }
 
 @media (max-width: 767px) {
