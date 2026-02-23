@@ -1,21 +1,5 @@
-.scrollContainer {
-  height: 100vh;
-  overflow-y: auto;
-
-  overflow-y: scroll;
-}
-
-.preloaderContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f0f0f0;
-  transition: opacity 0.8s ease-in-out;
-  opacity: 1;
-}
-
-.hiding {
-  opacity: 0;
-  pointer-events: none;
+.mainContent {
+  width: 100%;
+  min-height: 100vh;
+  opacity: 0; /* Let framer-motion control opacity */
 }

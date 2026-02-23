@@ -13,13 +13,6 @@
 
   transition: opacity 0.6s ease, transform 0.6s ease, filter 0.6s ease;
 
-  &--hide {
-    opacity: 0;
-    transform: scale(1.04);
-    filter: blur(6px);
-    pointer-events: none;
-  }
-
   &__title {
     position: relative;
     margin-bottom: 48px;

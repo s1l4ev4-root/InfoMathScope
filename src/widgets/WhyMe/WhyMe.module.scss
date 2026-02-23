@@ -1,192 +1,90 @@
-.scrollSection {
+.whyMeSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  width: 100%;
+}
+
+.textContainer {
+  h2 {
+    margin-bottom: 2.5rem;
+    position: relative;
+    display: inline-block;
+
+    // Underline effect
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60%;
+      height: 4px;
+      background-color: var(--accent-color);
+    }
+  }
+}
+
+.benefitsList {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  max-height: 95%;
-  position: relative;
-}
+  gap: 2rem;
 
-.secondBlock {
-  background-color: white;
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-
-  &_left,
-  &_right {
-    width: 50%;
-    padding: 40px;
-  }
-
-  &_right {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  &_left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    &_header {
-      font-size: 38px;
-      line-height: 1.23;
-      font-weight: 600;
-      background-image: linear-gradient(
-        to right,
-        transparent 0 0,
-        #000 0 50px,
-        transparent 50px 100%
-      );
-      background-size: 100% 2px;
-      background-repeat: no-repeat;
-      background-position: bottom;
-      padding-bottom: 24px;
+  li {
+    h3 {
+      font-family: "Inter", sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
     }
-
-    &_list,
-    &_list li {
-      list-style-type: initial;
-      list-style-position: inside;
-      font-size: 18px;
-      line-height: 1.55;
-      font-weight: 300;
-    }
-
-    &_list {
-      padding-top: 20px;
-
-      &_bold {
-        font-weight: 700;
-      }
-    }
-  }
-
-  .keenSlider {
-    border: 4px solid transparent;
-    background:
-      linear-gradient(#ab9fc2, #ab9fc2) padding-box,
-      linear-gradient(45deg, #f8d7e4, #e6c3d9, #ab9fc2) border-box;
-    border-radius: 16px;
-    box-shadow:
-      0 8px 25px rgba(171, 159, 194, 0.4),
-      inset 0 2px 8px rgba(255, 255, 255, 0.6);
-    position: relative;
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      background: linear-gradient(45deg, #ffeef5, #f0c8d9, #ab9fc2);
-      border-radius: 18px;
-      z-index: -1;
-      animation: shimmer 3s infinite;
-    }
-  }
-
-  @keyframes shimmer {
-    0%,
-    100% {
-      opacity: 0.8;
-    }
-    50% {
-      opacity: 1;
-    }
-  }
-
-  [class^="number-slide"],
-  [class*=" number-slide"] {
-    background: grey;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 50px;
-    color: #fff;
-    font-weight: 500;
-    max-height: 100%;
-    padding: 0;
-
-    height: 100%;
-    overflow: hidden;
-
-    img {
-      max-width: 100%;
-      max-height: 100%;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-      object-position: center;
+    p {
+      margin-bottom: 0;
+      font-size: 1rem;
     }
   }
 }
 
-.lineContainer {
-  position: absolute;
-  bottom: 25px;
-  left: 0;
+.sliderContainer {
   width: 100%;
-  z-index: 1;
-  &_line {
-    height: 1px;
-    background: linear-gradient(
-      to right,
-      transparent,
-      rgba(0, 0, 0, 0.6),
-      transparent
-    );
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  background-color: var(--card-background);
+}
+
+.slide {
+  height: 450px;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 
-@media (max-width: 1024px) {
-  .secondBlock {
-    &_left,
-    &_right {
-      padding: 30px;
-    }
-    &_left {
-      &_header {
-        font-size: 32px;
-      }
-      &_list {
-        font-size: 16px;
-      }
-    }
+// Responsive adjustments
+@media (max-width: 900px) {
+  .whyMeSection {
+    grid-template-columns: 1fr;
+    gap: 3rem;
   }
 
-  .scrollSection {
-    max-height: none;
+  .textContainer {
+    text-align: center;
+    h2::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
 }
 
-@media (max-width: 767px) {
-  .scrollSection {
-    height: auto;
-    padding: 40px 0;
-  }
-
-  .secondBlock {
-    flex-direction: column;
-    gap: 30px;
-
-    &_left,
-    &_right {
-      width: 100%;
-      padding: 0 20px;
+@media (max-width: 768px) {
+    .slide {
+        height: 350px;
     }
 
-    &_left {
-      &_header {
-        font-size: 28px;
-        text-align: center;
-        background-image: none;
-      }
-      &_list {
-        padding-top: 15px;
-      }
+    .textContainer h2 {
+        font-size: 1.8rem;
     }
-  }
 }

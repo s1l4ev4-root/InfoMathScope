@@ -1,73 +1,77 @@
-import classNames from "classnames";
+import { motion } from "framer-motion";
 import styles from "./Services.module.scss";
 
 import iconComputer from "@assets/icons/icon_computer.png";
 import iconHatGraduate from "@assets/icons/icon_hat_graduate.svg";
 import iconMath from "@assets/icons/icon_math.png";
 
+const servicesData = [
+  {
+    icon: iconHatGraduate,
+    title: "Помощь со школьной программой",
+    description: "Ликвидация пробелов в знаниях, помощь с домашними заданиями, углубленное изучение. Формат и длительность обсуждаются индивидуально.",
+    price: "от 1000 р./60 минут",
+  },
+  {
+    icon: iconMath,
+    title: "Подготовка к ОГЭ/ЕГЭ по математике",
+    description: "Разбор всех заданий экзамена, от простейших до самых сложных. Учимся правильно оформлять и получать максимальный балл.",
+    price: "от 1500 р./60 минут",
+  },
+  {
+    icon: iconComputer,
+    title: "Подготовка к ОГЭ/ЕГЭ по информатике",
+    description: "Разбор всех типов заданий, особенно задач на программирование. Глубокий разбор задач №24-27 для максимальных баллов.",
+    price: "от 1500 р./60 минут",
+  },
+];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2 },
+  },
+};
+
+const itemVariants = {
+  hidden: { y: 50, opacity: 0 },
+  visible: { y: 0, opacity: 1 },
+};
+
 const Services = () => {
   return (
-    <div
-      id="thirdSection"
-      className={classNames(styles.thirdBlock, styles.scrollSection)}
+    <motion.section 
+      id="services" 
+      className={styles.servicesSection}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={containerVariants}
     >
-      <div className={styles.thirdBlock_header}>Услуги</div>
-      <div className={styles.thirdBlock_ul}>
-        <div className={styles.thirdBlock_ul_li}>
-          <div className={styles.thirdBlock_ul_li_icon}>
-            <img src={iconHatGraduate} alt="" />
-          </div>
-          <div className={styles.thirdBlock_ul_li_title}>
-            Помощь со школьной программой
-          </div>
-          <div className={styles.thirdBlock_ul_li_body}>
-            Ликвидация пробелов в знаниях. Помощь с домашними заданиями.
-            Углубленное изучение математики. Формат и длительность занятий
-            обсуждаются индивидуально.
-          </div>
-          <div className={styles.thirdBlock_ul_li_price}>
-            Стоимость: от 1000 р./60 минут
-          </div>
-        </div>
-        <div className={styles.thirdBlock_ul_li}>
-          <div className={styles.thirdBlock_ul_li_icon}>
-            <img src={iconMath} alt="" />
-          </div>
-          <div className={styles.thirdBlock_ul_li_title}>
-            Подготовка к ОГЭ/ЕГЭ по математике
-          </div>
-          <div className={styles.thirdBlock_ul_li_body}>
-            Разбор всех заданий экзамена, от простейших задач до самых сложных.
-            Учимся правильно оформлять и аргументировать решение, чтобы получить
-            максимальный балл. Формат и длительность занятий обсуждаются
-            индивидуально.
-          </div>
-          <div className={styles.thirdBlock_ul_li_price}>
-            Стоимость: от 1500р/60 минут
-          </div>
-        </div>
-        <div className={styles.thirdBlock_ul_li}>
-          <div className={styles.thirdBlock_ul_li_icon}>
-            <img src={iconComputer} alt="" />
-          </div>
-          <div className={styles.thirdBlock_ul_li_title}>
-            Подготовка к ОГЭ/ЕГЭ по информатике
-          </div>
-          <div className={styles.thirdBlock_ul_li_body}>
-            Разбор всех типов заданий, особенно задач на программирование,
-            электронные таблицы и логику. Глубокий разбор задач №24-27, которые
-            приносят основное количество баллов. Формат и длительность занятий
-            обсуждаются индивидуально.
-          </div>
-          <div className={styles.thirdBlock_ul_li_price}>
-            Стоимость: от 1500р/60 минут
-          </div>
-        </div>
+      <motion.h2 className={styles.mainTitle} variants={itemVariants}>
+        Услуги
+      </motion.h2>
+
+      <div className={styles.servicesGrid}>
+        {servicesData.map((service, index) => (
+          <motion.div 
+            key={index} 
+            className={styles.serviceCard}
+            variants={itemVariants}
+            whileHover={{ y: -10, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            <div className={styles.iconWrapper}>
+              <img src={service.icon} alt={`${service.title} icon`} />
+            </div>
+            <h3>{service.title}</h3>
+            <p>{service.description}</p>
+            <div className={styles.price}>{service.price}</div>
+          </motion.div>
+        ))}
       </div>
-      <div className={styles.lineContainer}>
-        <div className={styles.lineContainer_line}></div>
-      </div>
-    </div>
+    </motion.section>
   );
 };
 

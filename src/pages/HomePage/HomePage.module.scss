@@ -1,0 +1,20 @@
+.homePage {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.heroSection {
+  width: 100%;
+  // The hero component will manage its own height and background
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem; // Adds space between sections
+  width: 100%;
+  max-width: 1200px; // Standard max-width for content
+  margin: 0 auto;
+  padding: 4rem 2rem; // Vertical and horizontal padding
+}

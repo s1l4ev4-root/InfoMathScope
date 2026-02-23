@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import { motion } from "framer-motion";
 import styles from "./Footer.module.scss";
 
 import iconMail from "@assets/icons/icon_mail.svg";
@@ -6,63 +6,67 @@ import iconPhone from "@assets/icons/icon_phone.svg";
 import iconTelegram from "@assets/icons/icon_telegram.svg";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <div
-      id="foursSection"
-      className={classNames(styles.foursBlock, styles.scrollSection)}
+    <motion.footer 
+      id="contact" 
+      className={styles.footer}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 1.0 }}
     >
-      <div className={styles.foursBlock_up}>
-        <div className={styles.foursBlock_up_title}>
-          Пробное занятие - БЕСПЛАТНО
-        </div>
-        <div className={styles.foursBlock_up_button}>
-          <a
-            className={styles.foursBlock_up_button_link}
-            href="https://t.me/silaeva_alina"
-          >
-            Записаться
-          </a>
-        </div>
+      <div className={styles.ctaSection}>
+        <h2>Пробное занятие - БЕСПЛАТНО</h2>
+        <motion.a 
+          href="https://t.me/silaeva_alina"
+          className={styles.ctaButton}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ type: "spring", stiffness: 400, damping: 17 }}
+        >
+          Записаться
+        </motion.a>
       </div>
-      <div className={styles.foursBlock_down}>
-        <div className={styles.foursBlock_down_up}>
-          <div>
-            <a href="">Политика обработки персональных данных</a>
-          </div>
-          <div>
-            <a href="">Оферта</a>
-          </div>
+
+      <div className={styles.mainFooter}>
+        <div className={styles.footerColumn}>
+          <h4>ИП Силаева Алина Олеговна</h4>
+          <p>ИНН: 330801741311</p>
+          <p>ОГРН: 325330000070002</p>
         </div>
-        <div className={styles.foursBlock_down_middle}>
-          <div className={styles.foursBlock_down_middle_sp}>
-            ИП Силаева Алина Олеговна
-          </div>
-          <div className={styles.foursBlock_down_middle_tin}>
-            ИНН: 330801741311
-          </div>
-          <div className={styles.foursBlock_down_middle_psrn}>
-            ОГРН: 325330000070002
-          </div>
+        <div className={styles.footerColumn}>
+          <h4>Навигация</h4>
+          <a href="#home">Главная</a>
+          <a href="#why-me">Почему я?</a>
+          <a href="#services">Услуги</a>
         </div>
-        <div className={styles.foursBlock_down_bottom}>
-          <div className={styles.foursBlock_down_bottom_phone}>
-            <a href="tel:89040305883">
-              <img src={iconPhone} alt="" />
+        <div className={styles.footerColumn}>
+          <h4>Контакты</h4>
+          <div className={styles.socialIcons}>
+            <a href="tel:89040305883" aria-label="Phone">
+              <img src={iconPhone} alt="Phone" />
             </a>
-          </div>
-          <div className={styles.foursBlock_down_bottom_mail}>
-            <a href="mailto:silaeva_alina@mail.ru?subject=Занятия по математике/информатике&body=Здравствуйте!%0D%0AИнтересуют уроки по математике и/или информатике.%0D%0AМой уровень: %0D%0AКласс/возраст: %0D%0AЖелаемое время: %0D%0A%0D%0AСпасибо!">
-              <img src={iconMail} alt="" />
+            <a href="mailto:silaeva_alina@mail.ru?subject=Занятия" aria-label="Email">
+              <img src={iconMail} alt="Email" />
             </a>
-          </div>
-          <div className={styles.foursBlock_down_bottom_telegram}>
-            <a href="https://t.me/silaeva_alina">
-              <img src={iconTelegram} alt="" />
+            <a href="https://t.me/silaeva_alina" aria-label="Telegram">
+              <img src={iconTelegram} alt="Telegram" />
             </a>
           </div>
         </div>
       </div>
-    </div>
+
+      <div className={styles.bottomBar}>
+        <p>© {currentYear} Силаева Алина. Все права защищены.</p>
+        <div className={styles.legalLinks}>
+          {/* The original links were empty, so I'll keep them pointing to '#' */}
+          <a href="#">Политика обработки персональных данных</a>
+          <a href="#">Оферта</a>
+        </div>
+      </div>
+    </motion.footer>
   );
 };
 

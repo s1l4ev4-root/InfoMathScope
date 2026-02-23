@@ -1,37 +1,37 @@
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import "./Preloader.scss";
 
 interface Props {
-  progress: number;
+  onComplete: () => void;
 }
 
-export function Preloader({ progress }: Props) {
-  //   const [progress, setProgress] = useState(0);
-  //   const [isHiding, setIsHiding] = useState(false);
-  //   const [isUnmounted, setIsUnmounted] = useState(false);
+export function Preloader({ onComplete }: Props) {
+  const [progress, setProgress] = useState(0);
 
-  //   useEffect(() => {
-  //     const interval = setInterval(() => {
-  //       setProgress((prev) => {
-  //         if (prev >= 100) {
-  //           clearInterval(interval);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) {
+          clearInterval(interval);
+          // Wait a moment after reaching 100% before triggering completion
+          setTimeout(onComplete, 500); 
+          return 100;
+        }
+        return prev + 1;
+      });
+    }, 25); // Animation duration ~2.5s
 
-  //           setTimeout(() => setIsHiding(true), 300);
-
-  //           setTimeout(() => setIsUnmounted(true), 1100);
-
-  //           return 100;
-  //         }
-  //         return prev + 1;
-  //       });
-  //     }, 30);
-
-  //     return () => clearInterval(interval);
-  //   }, []);
-
-  //   if (isUnmounted) return null;
+    return () => clearInterval(interval);
+  }, [onComplete]);
 
   return (
-    <div className="preloader">
+    <motion.div
+      className="preloader"
+      initial={{ opacity: 1 }}
+      exit={{ opacity: 0, scale: 1.05, filter: "blur(8px)" }}
+      transition={{ duration: 0.8, ease: "easeInOut" }}
+    >
       <div
         className="preloader__title"
         style={{ "--progress": `${progress}%` } as React.CSSProperties}
@@ -45,6 +45,6 @@ export function Preloader({ progress }: Props) {
       </div>
 
       <div className="preloader__progress">{progress}%</div>
-    </div>
+    </motion.div>
   );
 }
