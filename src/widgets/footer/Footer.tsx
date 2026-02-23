@@ -48,7 +48,7 @@ const Footer = () => {
             <a href="tel:89040305883" aria-label="Phone">
               <img src={iconPhone} alt="Phone" />
             </a>
-            <a href="mailto:silaeva_alina@mail.ru?subject=Занятия" aria-label="Email">
+            <a href="mailto:silaeva_alina@mail.ru?subject=Занятия по математике/информатике&body=Здравствуйте!%0D%0AИнтересуют уроки по математике и/или информатике.%0D%0AМой уровень: %0D%0AКласс/возраст: %0D%0AЖелаемое время: %0D%0A%0D%0AСпасибо!"aria-label="Email">
               <img src={iconMail} alt="Email" />
             </a>
             <a href="https://t.me/silaeva_alina" aria-label="Telegram">
@@ -61,7 +61,6 @@ const Footer = () => {
       <div className={styles.bottomBar}>
         <p>© {currentYear} Силаева Алина. Все права защищены.</p>
         <div className={styles.legalLinks}>
-          {/* The original links were empty, so I'll keep them pointing to '#' */}
           <a href="#">Политика обработки персональных данных</a>
           <a href="#">Оферта</a>
         </div>

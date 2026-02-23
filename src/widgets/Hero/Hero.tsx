@@ -4,7 +4,7 @@ import styles from "./Hero.module.scss";
 import photoAlina from "@assets/images/photo_alina.jpg";
 import background from "@assets/images/image_background.png";
 
-// Animation variants for Framer Motion
+
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {

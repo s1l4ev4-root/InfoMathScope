@@ -14,13 +14,12 @@ export function Preloader({ onComplete }: Props) {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
-          // Wait a moment after reaching 100% before triggering completion
           setTimeout(onComplete, 500); 
           return 100;
         }
         return prev + 1;
       });
-    }, 25); // Animation duration ~2.5s
+    }, 25);
 
     return () => clearInterval(interval);
   }, [onComplete]);

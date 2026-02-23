@@ -5,7 +5,7 @@
 
 .mainTitle {
   margin-bottom: 3rem;
-  &::after { // Underline effect
+  &::after { 
     content: '';
     display: block;
     width: 80px;
@@ -41,7 +41,7 @@
   }
 
   p {
-    flex-grow: 1; // Pushes price to the bottom
+    flex-grow: 1;
     margin-bottom: 1.5rem;
     font-size: 0.95rem;
   }
@@ -50,7 +50,7 @@
     font-size: 1.1rem;
     font-weight: 700;
     color: var(--accent-color);
-    margin-top: auto; // Aligns price to the bottom
+    margin-top: auto;
   }
 }
 
