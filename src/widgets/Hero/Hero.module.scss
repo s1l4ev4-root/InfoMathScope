@@ -1,5 +1,5 @@
 .hero {
-  position: relative;
+  position: relative; // Needed for containing absolute children
   height: 100vh;
   min-height: 700px;
   display: flex;
@@ -7,12 +7,21 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-size: cover;
-  background-position: center;
   color: #fff;
   text-align: center;
   padding: 2rem;
-  overflow: hidden;
+  overflow: hidden; // Clips the background
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 150%; // Taller to allow for vertical movement
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
 }
 
 .overlay {

@@ -10,7 +10,20 @@ import photoProbability from "@assets/images/photo_probability.jpg";
 
 const sliderImages = [photoIPad, photoMath, photoProbability];
 
-// Auto-play plugin for Keen Slider
+const BulbIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15.09 16.05a4.3 4.3 0 0 1-6.18 0"/><path d="M9 12a5 5 0 0 1 5-5h.01a5 5 0 0 1 5 5v0a5 5 0 0 1-5 5h-.01a5 5 0 0 1-5-5Z"/><path d="M4.69 16.05a4.3 4.3 0 0 0 6.18 0"/><path d="M12 2v2"/><path d="M12 18v4"/></svg>
+);
+const TargetIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+);
+const BookIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+);
+const ClockIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+);
+
+
 const autoplayPlugin = (slider: any) => {
   let timeout: ReturnType<typeof setTimeout>;
   let mouseOver = false;
@@ -57,10 +70,10 @@ const WhyMe = () => {
   );
 
   const benefits = [
-    { title: "Доступное объяснение", text: "Превращаю сложное в простое." },
-    { title: "Индивидуальный подход", text: "Программа под каждого ученика." },
-    { title: "Авторские материалы", text: "Собственные конспекты, схемы, методы запоминания." },
-    { title: "Поддержка 24/7", text: "Отвечаю на вопросы в чате между занятиями." },
+    { icon: <BulbIcon />, title: "Доступное объяснение", text: "Превращаю сложное в простое." },
+    { icon: <TargetIcon />, title: "Индивидуальный подход", text: "Программа под каждого ученика." },
+    { icon: <BookIcon />, title: "Авторские материалы", text: "Собственные конспекты, схемы, методы запоминания." },
+    { icon: <ClockIcon />, title: "Поддержка 24/7", text: "Отвечаю на вопросы в чате между занятиями." },
   ];
 
   return (
@@ -88,9 +101,12 @@ const WhyMe = () => {
           viewport={{ once: true, amount: 0.3 }}
         >
           {benefits.map((benefit, index) => (
-            <motion.li key={index} variants={itemVariants}>
-              <h3>{benefit.title}</h3>
-              <p>{benefit.text}</p>
+            <motion.li key={index} className={styles.benefitItem} variants={itemVariants}>
+              <div className={styles.benefitIcon}>{benefit.icon}</div>
+              <div className={styles.benefitText}>
+                <h3>{benefit.title}</h3>
+                <p>{benefit.text}</p>
+              </div>
             </motion.li>
           ))}
         </motion.ul>
